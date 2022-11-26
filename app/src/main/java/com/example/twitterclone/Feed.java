@@ -38,6 +38,8 @@ public class Feed extends AppCompatActivity implements AdapterView.OnItemClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
+        setTitle("Tweet");
+
         listView = findViewById(R.id.listView);
         tUsers = new ArrayList<>();
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_checked,tUsers);
@@ -87,16 +89,24 @@ public class Feed extends AppCompatActivity implements AdapterView.OnItemClickLi
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.logout){
-            ParseUser.getCurrentUser().logOutInBackground(new LogOutCallback() {
-                @Override
-                public void done(ParseException e) {
-                    Intent intent = new Intent(Feed.this, LogIn.class);
-                    startActivity(intent);
-                    finish();
-                }
-            });
+        switch (item.getItemId()){
+            case R.id.logout:
+                if (item.getItemId() == R.id.logout){
+                    ParseUser.getCurrentUser().logOutInBackground(new LogOutCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            Intent intent = new Intent(Feed.this, LogIn.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
 
+                }
+                break;
+
+            case R.id.tweet:
+                Intent intent = new Intent(Feed.this,Tweet.class);
+                startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
