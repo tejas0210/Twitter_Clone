@@ -16,8 +16,7 @@ import com.parse.ParseUser;
 
 public class LogIn extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText edtUsername;
-    private EditText edtPassword;
+    private EditText edtUsername, edtPassword;
     private Button btnLogIn, btnCreateAccount;
 
     @Override
@@ -38,18 +37,6 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
             transitionToFeed();
         }
 
-
-//        ParseObject firstObject = new  ParseObject("FirstClass");
-//        firstObject.put("message","Hey ! First message from android. Parse is now connected");
-//        firstObject.saveInBackground(e -> {
-//            if (e != null){
-//                Log.e("MainActivity", e.getLocalizedMessage());
-//            }else{
-//                Log.d("MainActivity","Object saved.");
-//            }
-//        });
-
-
     }
 
     @Override
@@ -64,7 +51,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                                 transitionToFeed();
                             }
                             else{
-                                Toast.makeText(LogIn.this,e.getMessage()    ,Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LogIn.this,e.getMessage(),Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
