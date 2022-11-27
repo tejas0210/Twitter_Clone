@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    tools:context=".Tweet">
+    tools:context=".Tweet"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtView5"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        android:paddingStart="15dp"
+        android:text="Write your thoughts here.."
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edtTweet"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
@@ -17,36 +33,33 @@
         android:inputType="textPersonName"
         android:paddingStart="15dp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtView5" />
+        />
 
     <Button
         android:id="@+id/btnTweet"
-        android:layout_width="134dp"
+        android:layout_width="wrap_content"
         android:layout_height="61dp"
-        android:layout_marginTop="44dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp"
         android:backgroundTint="#2196F3"
+        android:onClick="sendTweets"
         android:text="Tweet"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTweet" />
 
-    <TextView
-        android:id="@+id/txtView5"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btnPosts"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
-        android:paddingStart="15dp"
-        android:text="Write your thoughts here.."
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#000000"
+        android:text="Show others tweets"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/listView2"
+        android:layout_width="380dp"
+        android:layout_height="433dp"
+        android:layout_marginTop="24dp"
+        android:paddingStart="15dp" />
+</LinearLayout>
